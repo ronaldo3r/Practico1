@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pregunta"
+    android:gravity="center"
+    android:background="@android:color/darker_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:id="@+id/lay_preg">
+
+        <TextView
+            android:id="@+id/txt_puntos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Para ganar 5 puntos responde la siguiente pregunta:"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textAlignment="center"/>
+
+
+        <TextView
+            android:id="@+id/txt_preg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="100*100"
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="70dp"
+            android:textAlignment="center"/>
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/opc_resp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@android:color/black"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_opc1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="10000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_opc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="10000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_opc3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="10000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/radio_opc4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="10000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_preg"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_resp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Responder"
+            />
+
+        <Button
+            android:id="@+id/btn_refrescar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Refrescar"
+            android:layout_marginLeft="20dp"
+            />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_des_resp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tu respuesta fue:
+Correcta"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_below="@+id/lay_btn"/>
+
+
+</RelativeLayout>

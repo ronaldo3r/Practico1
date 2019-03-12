@@ -19,12 +19,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resolver pregunta"
+            android:text="Resolver pregunta fácil"
             android:textColor="#fff"
-            android:id="@+id/btn_preg"
+            android:id="@+id/btn_preg_facil"
+            android:visibility="visible"
+
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resolver pregunta difícil"
+            android:textColor="#fff"
+            android:id="@+id/btn_preg_dificil"
             android:visibility="invisible"
 
             />

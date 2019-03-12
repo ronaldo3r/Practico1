@@ -2,6 +2,7 @@ package appmoviles.com.practico1;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -60,7 +61,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng abaIzqB;
 
     //Botones
-    private Button btn_preg;
+    private Button btn_preg_facil;
+    private Button btn_preg_dificil;
     private Button btn_canje;
 
     private boolean estoyUbi;
@@ -90,7 +92,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         manager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         btn_canje=findViewById(R.id.btn_cupon);
-        btn_preg=findViewById(R.id.btn_preg);
+        btn_preg_facil=findViewById(R.id.btn_preg_facil);
+        btn_preg_dificil=findViewById(R.id.btn_preg_dificil);
 
         //Saman
 
@@ -159,7 +162,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             .title("Mi posición actual").icon(BitmapDescriptorFactory.fromResource(R.drawable.iconperson))
                     );
                     mapa.moveCamera(CameraUpdateFactory
-                            .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
+                            .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 18));
                     first=true;
                 }else{
 
@@ -169,19 +172,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             .title("Mi posición actual").icon(BitmapDescriptorFactory.fromResource(R.drawable.iconperson))
                     );
                     mapa.moveCamera(CameraUpdateFactory
-                            .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 15));
+                            .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 18));
 
                     Toast.makeText(getApplicationContext(), "Ubicación actual actualizada", Toast.LENGTH_LONG).show();
 
                 }
 
+                estoyUbi=estoyEnZona();
+
                 if(estoyUbi){
 
-                    btn_preg.setOnClickListener(new View.OnClickListener() {
+                    btn_preg_facil.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            Intent i = new Intent(MapsActivity.this, Pregunta.class);
+                            startActivity(i);
+                        }
+                    });
 
-                            //Mostrar Ventana
+                    btn_preg_dificil.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(MapsActivity.this, PreguntaDif.class);
+                            startActivity(i);
                         }
                     });
 
@@ -189,7 +202,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         @Override
                         public void onClick(View view) {
 
-                            //Mostrar ventana
+                            Intent i = new Intent(MapsActivity.this, Canje.class);
+                            startActivity(i);
                         }
                     });
                 }
@@ -218,11 +232,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         boolean estoy=false;
 
         //Saman
+        actual=inicio.getPosition();
 
         if((actual.latitude<=arrIzqS.latitude)&&(actual.latitude>=abaDerS.latitude)){
             if((actual.longitude>=arrIzqS.longitude)&&(actual.longitude<=abaDerS.longitude)){
 
-                btn_preg.setVisibility(View.VISIBLE);
+                btn_preg_dificil.setVisibility(View.VISIBLE);
 
                 estoy=true;
 
@@ -235,7 +250,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if((actual.longitude>=arrIzqC.longitude)&&(actual.longitude<=abaDerC.longitude)){
 
 
-                btn_preg.setVisibility(View.VISIBLE);
+                btn_preg_facil.setVisibility(View.VISIBLE);
 
                 estoy=true;
             }
@@ -259,7 +274,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
 
 
-                btn_canje.setVisibility(View.VISIBLE);
+                btn_preg_dificil.setVisibility(View.VISIBLE);
 
                 estoy=true;
             }
