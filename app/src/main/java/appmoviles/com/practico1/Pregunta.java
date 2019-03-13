@@ -103,7 +103,7 @@ public class Pregunta extends AppCompatActivity {
                         txtDesResp.setTextColor(Color.GREEN);
                         txtPtGana.setText("Ganaste 10 punto");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
+                        puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
@@ -120,7 +120,7 @@ public class Pregunta extends AppCompatActivity {
                         txtDesResp.setTextColor(Color.GREEN);
                         txtPtGana.setText("Ganaste 10 punto");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
+                        puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
@@ -137,7 +137,7 @@ public class Pregunta extends AppCompatActivity {
                         txtDesResp.setTextColor(Color.GREEN);
                         txtPtGana.setText("Ganaste 10 punto");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
+                        puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
@@ -155,7 +155,7 @@ public class Pregunta extends AppCompatActivity {
                             txtDesResp.setTextColor(Color.GREEN);
                             txtPtGana.setText("Ganaste 10 punto");
                             txtPtGana.setTextColor(Color.GREEN);
-                            puntosAcumulados+=10;
+                            puntosAcumulados+=1;
                             txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                         }else{
                             txtDesResp.setText("Respuesta Incorrecta");

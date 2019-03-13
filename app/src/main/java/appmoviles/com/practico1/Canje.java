@@ -10,6 +10,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+import java.util.Random;
+
 public class Canje extends AppCompatActivity {
 
     private TextView txt_punt_total;
@@ -25,6 +29,7 @@ public class Canje extends AppCompatActivity {
 
     private Button btn_canje;
     private Button btn_cancel;
+    private Button btn_guardar;
 
     private int puntosAcumulados;
 
@@ -46,6 +51,7 @@ public class Canje extends AppCompatActivity {
 
         btn_canje=findViewById(R.id.btn_canje);
         btn_cancel=findViewById(R.id.btn_cancelar);
+        btn_guardar=findViewById(R.id.btn_guardar);
 
         Intent i=getIntent();
         puntosAcumulados=i.getExtras().getInt("Puntos");
@@ -56,6 +62,10 @@ public class Canje extends AppCompatActivity {
     public void refrescar(){
 
         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
+
+        btn_canje.setVisibility(View.VISIBLE);
+        btn_guardar.setVisibility(View.INVISIBLE);
+        txt_desc_canje.setVisibility(View.VISIBLE);
 
         btn_canje.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +80,9 @@ public class Canje extends AppCompatActivity {
                         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
                         txt_desc_canje.setText("Tu código para reclamar el lapicero es:");
                         txt_codigo.setVisibility(View.VISIBLE);
-                        txt_codigo.setText("Codigo");
+                        txt_codigo.setText(generarCodigo());
+                        btn_guardar.setVisibility(View.VISIBLE);
+                        btn_canje.setVisibility(View.INVISIBLE);
                     }
                     else{
                         txt_desc_canje.setText("No tienes suficientes puntos para canjear el lapicero");
@@ -84,7 +96,9 @@ public class Canje extends AppCompatActivity {
                         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
                         txt_desc_canje.setText("Tu código para reclamar el cuaderno es:");
                         txt_codigo.setVisibility(View.VISIBLE);
-                        txt_codigo.setText("Codigo");
+                        txt_codigo.setText(generarCodigo());
+                        btn_guardar.setVisibility(View.VISIBLE);
+                        btn_canje.setVisibility(View.INVISIBLE);
                     }
                     else{
                         txt_desc_canje.setText("No tienes suficientes puntos para canjear el cuaderno");
@@ -98,7 +112,9 @@ public class Canje extends AppCompatActivity {
                         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
                         txt_desc_canje.setText("Tu código para reclamar la libreta es:");
                         txt_codigo.setVisibility(View.VISIBLE);
-                        txt_codigo.setText("Codigo");
+                        txt_codigo.setText(generarCodigo());
+                        btn_guardar.setVisibility(View.VISIBLE);
+                        btn_canje.setVisibility(View.INVISIBLE);
                     }
                     else{
                         txt_desc_canje.setText("No tienes suficientes puntos para canjear la libreta");
@@ -112,7 +128,9 @@ public class Canje extends AppCompatActivity {
                         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
                         txt_desc_canje.setText("Tu código para reclamar la camiseta es:");
                         txt_codigo.setVisibility(View.VISIBLE);
-                        txt_codigo.setText("Codigo");
+                        txt_codigo.setText(generarCodigo());
+                        btn_guardar.setVisibility(View.VISIBLE);
+                        btn_canje.setVisibility(View.INVISIBLE);
                     }
                     else{
                         txt_desc_canje.setText("No tienes suficientes puntos para canjear la camiseta");
@@ -124,13 +142,25 @@ public class Canje extends AppCompatActivity {
                         txt_punt_total.setText("Puntos acumulados: "+puntosAcumulados);
                         txt_desc_canje.setText("Tu código para reclamar el saco es:");
                         txt_codigo.setVisibility(View.VISIBLE);
-                        txt_codigo.setText("Codigo");
+                        txt_codigo.setText(generarCodigo());
+                        btn_guardar.setVisibility(View.VISIBLE);
+                        btn_canje.setVisibility(View.INVISIBLE);
                     }
                     else{
                         txt_desc_canje.setText("No tienes suficientes puntos para canjear el saco");
                         txt_codigo.setVisibility(View.INVISIBLE);
                     }
                 }
+            }
+        });
+
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                refrescar();
+                txt_desc_canje.setVisibility(View.INVISIBLE);
+                txt_codigo.setText("Guardaste el código y puedes ir a la tienda Icesi a reclamar tu premio");
             }
         });
 
@@ -149,5 +179,12 @@ public class Canje extends AppCompatActivity {
         //txt_desc_canje.setVisibility(View.INVISIBLE);
         //txt_codigo.setText(View.INVISIBLE);
 
+    }
+
+    public String generarCodigo(){
+
+        SecureRandom random = new SecureRandom();
+        String text = new BigInteger(130, random).toString(32);
+        return text;
     }
 }

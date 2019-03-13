@@ -12,7 +12,7 @@
         android:id="@+id/txt_tot_pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Puntos totales: 100"
+        android:text=""
         android:background="@android:color/black"
         android:textColor="@android:color/white"
         android:textStyle="bold"
@@ -107,6 +107,15 @@
             />
 
         <Button
+            android:id="@+id/btn_guardar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar codigo"
+            android:visibility="invisible"
+            android:layout_marginLeft="20dp"
+            />
+
+        <Button
             android:id="@+id/btn_cancelar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,8 +129,7 @@
         android:id="@+id/txt_des_canje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="No tienes suficientes puntos para canjear el regalo escogido"
-        android:background="@android:color/black"
+        android:text=""
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="30dp"

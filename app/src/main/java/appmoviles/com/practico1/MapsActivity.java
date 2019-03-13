@@ -301,7 +301,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
 
 
-                btn_preg_facil.setVisibility(View.VISIBLE);
+                btn_canje.setVisibility(View.VISIBLE);
 
                 estoy=true;
             }
