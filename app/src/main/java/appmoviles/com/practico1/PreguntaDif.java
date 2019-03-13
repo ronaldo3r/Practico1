@@ -1,5 +1,7 @@
 package appmoviles.com.practico1;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +82,50 @@ public class PreguntaDif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                txtDesResp.setVisibility(View.VISIBLE);
+
+                if(opc1.isChecked()){
+                    if(opc1.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                    }
+                }
+                else if(opc2.isChecked()){
+                    if(opc2.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                    }
+                }
+                else if(opc3.isChecked()){
+                    if(opc3.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                    }
+                }
+                else{
+                    if(opc4.isChecked()){
+                        if(opc4.getText().equals(""+opcionesResp[0])){
+
+                            txtDesResp.setText("Respuesta Correcta");
+                            txtDesResp.setTextColor(Color.GREEN);
+                        }else{
+                            txtDesResp.setText("Respuesta Incorrecta");
+                            txtDesResp.setTextColor(Color.RED);
+                        }
+                    }
+                }
             }
         });
 
@@ -95,6 +141,8 @@ public class PreguntaDif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(PreguntaDif.this, MapsActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -106,7 +154,7 @@ public class PreguntaDif extends AppCompatActivity {
 
         String ope = operadores[operador];
 
-        txtPuntos.setText("Para ganar 2 puntos responde la siguiente pregunta:");
+        txtPuntos.setText("Para ganar 10 puntos responde la siguiente pregunta:");
 
         if (ope.equals("+")) {
 

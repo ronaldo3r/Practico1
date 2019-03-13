@@ -1,5 +1,7 @@
 package appmoviles.com.practico1;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +18,10 @@ public class Pregunta extends AppCompatActivity {
     private TextView txtPuntos;
     private TextView txtPregunta;
     private TextView txtDesResp;
+    private TextView txtPtGana;
+    private TextView txtPtTot;
+
+    private int puntosAcumulados;
 
     private Button btn_resp;
     private Button btn_refres;
@@ -43,6 +49,8 @@ public class Pregunta extends AppCompatActivity {
         txtPuntos = findViewById(R.id.txt_puntos);
         txtPregunta = findViewById(R.id.txt_preg);
         txtDesResp = findViewById(R.id.txt_des_resp);
+        txtPtGana= findViewById(R.id.txt_pt_gan);
+        txtPtTot=findViewById(R.id.txt_tot_pt);
 
         btn_resp = findViewById(R.id.btn_resp);
         btn_refres = findViewById(R.id.btn_refrescar);
@@ -80,6 +88,71 @@ public class Pregunta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                txtDesResp.setVisibility(View.VISIBLE);
+                txtPtGana.setVisibility(View.VISIBLE);
+
+                if(opc1.isChecked()){
+                    if(opc1.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 1 punto");
+                        puntosAcumulados+=1;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }
+                }
+                else if(opc2.isChecked()){
+                    if(opc2.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 1 punto");
+                        puntosAcumulados+=1;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }
+                }
+                else if(opc3.isChecked()){
+                    if(opc3.getText().equals(""+opcionesResp[0])){
+
+                        txtDesResp.setText("Respuesta Correcta");
+                        txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 1 punto");
+                        puntosAcumulados+=1;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }else{
+                        txtDesResp.setText("Respuesta Incorrecta");
+                        txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                    }
+                }
+                else{
+                    if(opc4.isChecked()){
+                        if(opc4.getText().equals(""+opcionesResp[0])){
+
+                            txtDesResp.setText("Respuesta Correcta");
+                            txtDesResp.setTextColor(Color.GREEN);
+                            txtPtGana.setText("Ganaste 1 punto");
+                            puntosAcumulados+=1;
+                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                        }else{
+                            txtDesResp.setText("Respuesta Incorrecta");
+                            txtDesResp.setTextColor(Color.RED);
+                            txtPtGana.setText("No ganaste puntos");
+                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                        }
+                    }
+                }
             }
         });
 
@@ -95,6 +168,8 @@ public class Pregunta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent i = new Intent(Pregunta.this, MapsActivity.class);
+                startActivity(i);
             }
         });
     }
