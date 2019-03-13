@@ -193,6 +193,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     btn_preg_dificil.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
+
                             Intent i = new Intent(MapsActivity.this, PreguntaDif.class);
                             startActivity(i);
                         }
