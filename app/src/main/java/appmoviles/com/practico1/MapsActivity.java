@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -39,6 +40,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private boolean first;
 
+    private int puntosAcumulados;
+
     //Saman
 
     private LatLng arrIzqS;
@@ -64,6 +67,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Button btn_preg_facil;
     private Button btn_preg_dificil;
     private Button btn_canje;
+
+    //TextView
+    private TextView txt_puntos_acu;
 
     private boolean estoyUbi;
 
@@ -95,6 +101,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btn_preg_facil=findViewById(R.id.btn_preg_facil);
         btn_preg_dificil=findViewById(R.id.btn_preg_dificil);
 
+        txt_puntos_acu=findViewById(R.id.txt_total_pt);
+
         //Saman
 
         arrIzqS= new LatLng(3.341912,-76.530593);
@@ -120,7 +128,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         abaDerP= new LatLng(3.342462,-76.529993);
         abaIzqP= new LatLng(3.342419,-76.530636);
 
+        txt_puntos_acu.setText("Puntos acumulados: "+puntosAcumulados);
 
+        Intent intent= getIntent();
+        if(intent!=null){
+            puntosAcumulados = intent.getIntExtra("Puntos",1000);
+            txt_puntos_acu.setText("Puntos acumulados: "+puntosAcumulados);
+        }
     }
 
 
@@ -148,6 +162,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         polC= mapa.addPolygon(new PolygonOptions().add(arrIzqC,abaIzqC,abaDerC,arrDerC));
 
         polP= mapa.addPolygon(new PolygonOptions().add(arrIzqP,abaIzqP,abaDerP,arrDerP));
+
 
 
         manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, new LocationListener() {
@@ -185,8 +200,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     btn_preg_facil.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+
                             Intent i = new Intent(MapsActivity.this, Pregunta.class);
+                            i.putExtra("Puntos", puntosAcumulados);
                             startActivity(i);
+                            MapsActivity.this.finish();
                         }
                     });
 
@@ -195,6 +213,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         public void onClick(View v) {
 
                             Intent i = new Intent(MapsActivity.this, PreguntaDif.class);
+                            i.putExtra("Puntos", puntosAcumulados);
                             startActivity(i);
                         }
                     });
@@ -204,10 +223,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         public void onClick(View view) {
 
                             Intent i = new Intent(MapsActivity.this, Canje.class);
+                            i.putExtra("Puntos", puntosAcumulados);
                             startActivity(i);
                         }
                     });
+                }else{
+                    btn_preg_facil.setVisibility(View.INVISIBLE);
+                    btn_preg_dificil.setVisibility(View.INVISIBLE);
+                    btn_canje.setVisibility(View.INVISIBLE);
                 }
+
             }
 
             @Override
@@ -227,6 +252,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
     }
+
 
     public boolean estoyEnZona(){
 
@@ -275,7 +301,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
 
 
-                btn_preg_dificil.setVisibility(View.VISIBLE);
+                btn_preg_facil.setVisibility(View.VISIBLE);
 
                 estoy=true;
             }

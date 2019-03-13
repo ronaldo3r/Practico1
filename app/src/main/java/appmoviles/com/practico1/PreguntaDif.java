@@ -2,6 +2,7 @@ package appmoviles.com.practico1;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.IntRange;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,8 @@ public class PreguntaDif extends AppCompatActivity {
     private TextView txtPuntos;
     private TextView txtPregunta;
     private TextView txtDesResp;
+    private TextView txtPtGana;
+    private TextView txtPtTot;
 
     private Button btn_resp;
     private Button btn_refres;
@@ -28,6 +31,8 @@ public class PreguntaDif extends AppCompatActivity {
     private RadioButton opc2;
     private RadioButton opc3;
     private RadioButton opc4;
+
+    private int puntosAcumulados;
 
     //Pregunta
 
@@ -45,6 +50,8 @@ public class PreguntaDif extends AppCompatActivity {
         txtPuntos = findViewById(R.id.txt_puntos);
         txtPregunta = findViewById(R.id.txt_preg);
         txtDesResp = findViewById(R.id.txt_des_resp);
+        txtPtGana= findViewById(R.id.txt_pt_gan);
+        txtPtTot=findViewById(R.id.txt_tot_pt);
 
         btn_resp = findViewById(R.id.btn_resp);
         btn_refres = findViewById(R.id.btn_refrescar);
@@ -63,6 +70,9 @@ public class PreguntaDif extends AppCompatActivity {
         operadores[2] = "*";
         operadores[3] = "/";
 
+        Intent intent=getIntent();
+        puntosAcumulados = intent.getExtras().getInt("Puntos");
+
         refrescar();
 
     }
@@ -76,6 +86,8 @@ public class PreguntaDif extends AppCompatActivity {
         opcionesResp[2] = -999999;
         opcionesResp[3] = -999999;
 
+        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+
         generarPreguntaDificil();
 
         btn_resp.setOnClickListener(new View.OnClickListener() {
@@ -83,15 +95,23 @@ public class PreguntaDif extends AppCompatActivity {
             public void onClick(View v) {
 
                 txtDesResp.setVisibility(View.VISIBLE);
+                txtPtGana.setVisibility(View.VISIBLE);
 
                 if(opc1.isChecked()){
                     if(opc1.getText().equals(""+opcionesResp[0])){
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
                 else if(opc2.isChecked()){
@@ -99,9 +119,16 @@ public class PreguntaDif extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
                 else if(opc3.isChecked()){
@@ -109,9 +136,16 @@ public class PreguntaDif extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
+                        txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
+                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
                 else{
@@ -120,12 +154,20 @@ public class PreguntaDif extends AppCompatActivity {
 
                             txtDesResp.setText("Respuesta Correcta");
                             txtDesResp.setTextColor(Color.GREEN);
+                            txtPtGana.setText("Ganaste 10 punto");
+                            txtPtGana.setTextColor(Color.GREEN);
+                            puntosAcumulados+=10;
+                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                         }else{
                             txtDesResp.setText("Respuesta Incorrecta");
                             txtDesResp.setTextColor(Color.RED);
+                            txtPtGana.setText("No ganaste puntos");
+                            txtPtGana.setTextColor(Color.RED);
+                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                         }
                     }
                 }
+                btn_resp.setEnabled(false);
             }
         });
 
@@ -134,6 +176,9 @@ public class PreguntaDif extends AppCompatActivity {
             public void onClick(View v) {
 
                 refrescar();
+                btn_resp.setEnabled(true);
+                txtPtGana.setVisibility(View.INVISIBLE);
+                txtDesResp.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -141,8 +186,11 @@ public class PreguntaDif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(PreguntaDif.this, MapsActivity.class);
+                Intent i= new Intent(PreguntaDif.this, MapsActivity.class);
+                i.putExtra("Puntos",puntosAcumulados);
                 startActivity(i);
+                PreguntaDif.this.finish();
+
             }
         });
     }
@@ -277,8 +325,8 @@ public class PreguntaDif extends AppCompatActivity {
 
         } else {
 
-            num1 = 1+(int) aleatorio.nextInt(999);
-            num2 = 1+(int) aleatorio.nextInt(999);
+            num1 = 2+(int) aleatorio.nextInt(998);
+            num2 = 2+(int) aleatorio.nextInt(998);
 
             boolean a = false;
 
@@ -300,8 +348,8 @@ public class PreguntaDif extends AppCompatActivity {
                     }
                 }
 
-                num1 = 1+(int) aleatorio.nextInt(999);
-                num2 = 1+(int) aleatorio.nextInt(999);
+                num1 = 2+(int) aleatorio.nextInt(999);
+                num2 = 2+(int) aleatorio.nextInt(999);
             }
             opcionesResp[0] = resp;
 

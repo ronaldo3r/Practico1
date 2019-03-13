@@ -12,7 +12,7 @@
         android:id="@+id/txt_tot_pt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Puntos totales: 100"
+        android:text=""
         android:background="@android:color/black"
         android:textColor="@android:color/white"
         android:textStyle="bold"

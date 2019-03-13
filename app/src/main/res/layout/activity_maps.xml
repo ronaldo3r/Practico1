@@ -11,9 +11,29 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MapsActivity" >
+        tools:context=".MapsActivity"
+        android:layout_below="@id/txt_tot_pt">
 
     </fragment>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top">
+
+        <TextView
+            android:id="@+id/txt_total_pt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:background="@android:color/black"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,7 +46,7 @@
             android:text="Resolver pregunta fácil"
             android:textColor="#fff"
             android:id="@+id/btn_preg_facil"
-            android:visibility="visible"
+            android:visibility="invisible"
 
             />
 

@@ -21,8 +21,6 @@ public class Pregunta extends AppCompatActivity {
     private TextView txtPtGana;
     private TextView txtPtTot;
 
-    private int puntosAcumulados;
-
     private Button btn_resp;
     private Button btn_refres;
     private Button btn_cancel;
@@ -32,6 +30,8 @@ public class Pregunta extends AppCompatActivity {
     private RadioButton opc2;
     private RadioButton opc3;
     private RadioButton opc4;
+
+    private int puntosAcumulados;
 
     //Pregunta
 
@@ -69,6 +69,9 @@ public class Pregunta extends AppCompatActivity {
         operadores[2] = "*";
         operadores[3] = "/";
 
+        Intent intent=getIntent();
+        puntosAcumulados = intent.getExtras().getInt("Puntos");
+
         refrescar();
 
     }
@@ -81,6 +84,8 @@ public class Pregunta extends AppCompatActivity {
         opcionesResp[1] = -999999;
         opcionesResp[2] = -999999;
         opcionesResp[3] = -999999;
+
+        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
 
         generarPreguntaFacil();
 
@@ -96,13 +101,15 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 1 punto");
-                        puntosAcumulados+=1;
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
@@ -111,13 +118,15 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 1 punto");
-                        puntosAcumulados+=1;
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
@@ -126,13 +135,15 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 1 punto");
-                        puntosAcumulados+=1;
+                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setTextColor(Color.GREEN);
+                        puntosAcumulados+=10;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }else{
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
+                        txtPtGana.setTextColor(Color.RED);
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                     }
                 }
@@ -142,17 +153,20 @@ public class Pregunta extends AppCompatActivity {
 
                             txtDesResp.setText("Respuesta Correcta");
                             txtDesResp.setTextColor(Color.GREEN);
-                            txtPtGana.setText("Ganaste 1 punto");
-                            puntosAcumulados+=1;
+                            txtPtGana.setText("Ganaste 10 punto");
+                            txtPtGana.setTextColor(Color.GREEN);
+                            puntosAcumulados+=10;
                             txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                         }else{
                             txtDesResp.setText("Respuesta Incorrecta");
                             txtDesResp.setTextColor(Color.RED);
                             txtPtGana.setText("No ganaste puntos");
+                            txtPtGana.setTextColor(Color.RED);
                             txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
                         }
                     }
                 }
+                btn_resp.setEnabled(false);
             }
         });
 
@@ -161,6 +175,9 @@ public class Pregunta extends AppCompatActivity {
             public void onClick(View v) {
 
                 refrescar();
+                btn_resp.setEnabled(true);
+                txtPtGana.setVisibility(View.INVISIBLE);
+                txtDesResp.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -168,8 +185,11 @@ public class Pregunta extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(Pregunta.this, MapsActivity.class);
+                Intent i= new Intent(Pregunta.this, MapsActivity.class);
+                i.putExtra("Puntos",puntosAcumulados);
                 startActivity(i);
+                Pregunta.this.finish();
+
             }
         });
     }
@@ -298,6 +318,8 @@ public class Pregunta extends AppCompatActivity {
             }
 
         } else {
+            num1 = 1+(int) aleatorio.nextInt(9);
+            num2 = 1+(int) aleatorio.nextInt(9);
 
             boolean a = false;
 

@@ -4,6 +4,143 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Canje">
+    tools:context=".Pregunta"
+    android:gravity="center"
+    android:background="@android:color/darker_gray">
+
+    <TextView
+        android:id="@+id/txt_tot_pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Puntos totales: 100"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:id="@+id/lay_opciones"
+        android:layout_below="@id/txt_tot_pt">
+
+        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/opc_pre"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@android:color/black"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_pre1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Lapicero Icesi --> 20 puntos"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_pre2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Cuaderno Icesi --> 30 puntos"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+            <RadioButton
+                android:id="@+id/radio_pre3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Libreta Icesi --> 40 puntos"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/radio_pre4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Camiseta Icesi --> 80 puntos"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/radio_pre5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Saco Icesi --> 100 puntos"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lay_opciones"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_canje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Canjear"
+            />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:layout_marginLeft="20dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_des_canje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No tienes suficientes puntos para canjear el regalo escogido"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:layout_below="@+id/lay_btn"/>
+
+    <TextView
+        android:id="@+id/txt_codigo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Codigo"
+        android:background="@android:color/black"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:layout_below="@+id/txt_des_canje"/>
+
 
 </RelativeLayout>
