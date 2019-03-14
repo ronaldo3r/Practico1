@@ -81,12 +81,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Polygon polC;
 
     //Prueba
-    private Polygon polP;
+   // private Polygon polP;
 
-    private LatLng arrIzqP;
-    private LatLng arrDerP;
-    private LatLng abaDerP;
-    private LatLng abaIzqP;
+//    private LatLng arrIzqP;
+//    private LatLng arrDerP;
+//    private LatLng abaDerP;
+//    private LatLng abaIzqP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,16 +126,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         abaIzqB= new LatLng(3.341664,-76.530095);
 
         //Prueba
-        arrIzqP= new LatLng(3.342644,-76.530561);
-        arrDerP= new LatLng(3.342655,-76.529987);
-        abaDerP= new LatLng(3.342462,-76.529993);
-        abaIzqP= new LatLng(3.342419,-76.530636);
+//        arrIzqP= new LatLng(3.342644,-76.530561);
+//        arrDerP= new LatLng(3.342655,-76.529987);
+//        abaDerP= new LatLng(3.342462,-76.529993);
+//        abaIzqP= new LatLng(3.342419,-76.530636);
 
         txt_puntos_acu.setText("Puntos acumulados: "+puntosAcumulados);
 
         Intent intent= getIntent();
         if(intent!=null){
-            puntosAcumulados = intent.getIntExtra("Puntos",1000);
+            puntosAcumulados = intent.getIntExtra("Puntos",0);
             txt_puntos_acu.setText("Puntos acumulados: "+puntosAcumulados);
         }
     }
@@ -164,7 +164,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         polS= mapa.addPolygon(new PolygonOptions().add(arrIzqS,abaIzqS,abaDerS,arrDerS));
         polC= mapa.addPolygon(new PolygonOptions().add(arrIzqC,abaIzqC,abaDerC,arrDerC));
 
-        polP= mapa.addPolygon(new PolygonOptions().add(arrIzqP,abaIzqP,abaDerP,arrDerP));
+        //polP= mapa.addPolygon(new PolygonOptions().add(arrIzqP,abaIzqP,abaDerP,arrDerP));
 
         polB.setStrokeColor(Color.DKGRAY);
         polS.setStrokeColor(Color.DKGRAY);
@@ -195,7 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mapa.moveCamera(CameraUpdateFactory
                             .newLatLngZoom(new LatLng(location.getLatitude(), location.getLongitude()), 18));
 
-                    Toast.makeText(getApplicationContext(), "Ubicación actual actualizada", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Cambio ubicación actual", Toast.LENGTH_LONG).show();
 
                 }
 
@@ -307,15 +307,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Prueba
 
-        if((actual.latitude<=arrIzqP.latitude)&&(actual.latitude>=abaDerP.latitude)){
-            if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
-
-
-                btn_preg_dificil.setVisibility(View.VISIBLE);
-
-                estoy=true;
-            }
-        }
+//        if((actual.latitude<=arrIzqP.latitude)&&(actual.latitude>=abaDerP.latitude)){
+//            if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
+//
+//
+//                btn_canje.setVisibility(View.VISIBLE);
+//
+//                estoy=true;
+//            }
+//        }
 
         return estoy;
 
