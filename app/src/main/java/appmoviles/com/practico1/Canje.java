@@ -184,7 +184,7 @@ public class Canje extends AppCompatActivity {
     public String generarCodigo(){
 
         SecureRandom random = new SecureRandom();
-        String text = new BigInteger(130, random).toString(32);
+        String text = new BigInteger(100, random).toString(32);
         return text;
     }
 }

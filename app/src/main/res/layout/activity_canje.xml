@@ -145,7 +145,7 @@
         android:background="@android:color/black"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:visibility="invisible"
         android:textAlignment="center"
         android:layout_below="@+id/txt_des_canje"/>

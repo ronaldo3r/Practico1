@@ -50,8 +50,8 @@ public class PreguntaDif extends AppCompatActivity {
         txtPuntos = findViewById(R.id.txt_puntos);
         txtPregunta = findViewById(R.id.txt_preg);
         txtDesResp = findViewById(R.id.txt_des_resp);
-        txtPtGana= findViewById(R.id.txt_pt_gan);
-        txtPtTot=findViewById(R.id.txt_tot_pt);
+        txtPtGana = findViewById(R.id.txt_pt_gan);
+        txtPtTot = findViewById(R.id.txt_tot_pt);
 
         btn_resp = findViewById(R.id.btn_resp);
         btn_refres = findViewById(R.id.btn_refrescar);
@@ -70,14 +70,14 @@ public class PreguntaDif extends AppCompatActivity {
         operadores[2] = "*";
         operadores[3] = "/";
 
-        Intent intent=getIntent();
+        Intent intent = getIntent();
         puntosAcumulados = intent.getExtras().getInt("Puntos");
 
         refrescar();
 
     }
 
-    public void refrescar(){
+    public void refrescar() {
 
         //Opciones
         opcionesResp = new int[4];
@@ -86,7 +86,7 @@ public class PreguntaDif extends AppCompatActivity {
         opcionesResp[2] = -999999;
         opcionesResp[3] = -999999;
 
-        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
 
         generarPreguntaDificil();
 
@@ -97,73 +97,70 @@ public class PreguntaDif extends AppCompatActivity {
                 txtDesResp.setVisibility(View.VISIBLE);
                 txtPtGana.setVisibility(View.VISIBLE);
 
-                if(opc1.isChecked()){
-                    if(opc1.getText().equals(""+opcionesResp[0])){
+                if (opc1.isChecked()) {
+                    if (opc1.getText().equals("" + opcionesResp[0])) {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 10 puntos");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
-                    }else{
+                        puntosAcumulados += 10;
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
+                    } else {
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
                         txtPtGana.setTextColor(Color.RED);
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
                     }
-                }
-                else if(opc2.isChecked()){
-                    if(opc2.getText().equals(""+opcionesResp[0])){
+                } else if (opc2.isChecked()) {
+                    if (opc2.getText().equals("" + opcionesResp[0])) {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 10 puntos");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
-                    }else{
+                        puntosAcumulados += 10;
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
+                    } else {
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
                         txtPtGana.setTextColor(Color.RED);
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
                     }
-                }
-                else if(opc3.isChecked()){
-                    if(opc3.getText().equals(""+opcionesResp[0])){
+                } else if (opc3.isChecked()) {
+                    if (opc3.getText().equals("" + opcionesResp[0])) {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 10 puntos");
                         txtPtGana.setTextColor(Color.GREEN);
-                        puntosAcumulados+=10;
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
-                    }else{
+                        puntosAcumulados += 10;
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
+                    } else {
                         txtDesResp.setText("Respuesta Incorrecta");
                         txtDesResp.setTextColor(Color.RED);
                         txtPtGana.setText("No ganaste puntos");
                         txtPtGana.setTextColor(Color.RED);
-                        txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                        txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
                     }
-                }
-                else{
-                    if(opc4.isChecked()){
-                        if(opc4.getText().equals(""+opcionesResp[0])){
+                } else {
+                    if (opc4.isChecked()) {
+                        if (opc4.getText().equals("" + opcionesResp[0])) {
 
                             txtDesResp.setText("Respuesta Correcta");
                             txtDesResp.setTextColor(Color.GREEN);
-                            txtPtGana.setText("Ganaste 10 punto");
+                            txtPtGana.setText("Ganaste 10 puntos");
                             txtPtGana.setTextColor(Color.GREEN);
-                            puntosAcumulados+=10;
-                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
-                        }else{
+                            puntosAcumulados += 10;
+                            txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
+                        } else {
                             txtDesResp.setText("Respuesta Incorrecta");
                             txtDesResp.setTextColor(Color.RED);
                             txtPtGana.setText("No ganaste puntos");
                             txtPtGana.setTextColor(Color.RED);
-                            txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
+                            txtPtTot.setText("Puntos acumulados: " + puntosAcumulados);
                         }
                     }
                 }
@@ -186,8 +183,8 @@ public class PreguntaDif extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent i= new Intent(PreguntaDif.this, MapsActivity.class);
-                i.putExtra("Puntos",puntosAcumulados);
+                Intent i = new Intent(PreguntaDif.this, MapsActivity.class);
+                i.putExtra("Puntos", puntosAcumulados);
                 startActivity(i);
                 PreguntaDif.this.finish();
 
@@ -218,27 +215,31 @@ public class PreguntaDif extends AppCompatActivity {
             while (i < opcionesResp.length) {
 
                 int opcion = aleatorio.nextInt(1999);
+                int diferencia = Math.abs(resp - opcion);
 
-                if (i == 2) {
+                if (diferencia <= 50) {
 
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
+                    if (i == 2) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else if (i == 3) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else {
+                        if (opcion != resp) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
                     }
-
-                } else if (i == 3) {
-
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
-                } else {
-                    if (opcion != resp) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
                 }
             }
 
@@ -262,26 +263,31 @@ public class PreguntaDif extends AppCompatActivity {
 
                 int opcion = (int) aleatorio.nextInt(1000);
 
-                if (i == 2) {
+                int diferencia = Math.abs(resp - opcion);
 
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
+                if (diferencia <= 50) {
+
+                    if (i == 2) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else if (i == 3) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else {
+                        if (opcion != resp) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
                     }
-
-                } else if (i == 3) {
-
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
-                } else {
-                    if (opcion != resp) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
                 }
             }
 
@@ -300,33 +306,38 @@ public class PreguntaDif extends AppCompatActivity {
 
                 int opcion = aleatorio.nextInt(9802);
 
-                if (i == 2) {
+                int diferencia = Math.abs(resp - opcion);
 
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
+                if (diferencia <= 50) {
+
+                    if (i == 2) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else if (i == 3) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else {
+                        if (opcion != resp) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
                     }
-
-                } else if (i == 3) {
-
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
-                } else {
-                    if (opcion != resp) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
                 }
             }
 
         } else {
 
-            num1 = 2+(int) aleatorio.nextInt(998);
-            num2 = 2+(int) aleatorio.nextInt(998);
+            num1 = 2 + (int) aleatorio.nextInt(998);
+            num2 = 2 + (int) aleatorio.nextInt(998);
 
             boolean a = false;
 
@@ -348,8 +359,8 @@ public class PreguntaDif extends AppCompatActivity {
                     }
                 }
 
-                num1 = 2+(int) aleatorio.nextInt(999);
-                num2 = 2+(int) aleatorio.nextInt(999);
+                num1 = 2 + (int) aleatorio.nextInt(999);
+                num2 = 2 + (int) aleatorio.nextInt(999);
             }
             opcionesResp[0] = resp;
 
@@ -358,26 +369,31 @@ public class PreguntaDif extends AppCompatActivity {
 
                 int opcion = (int) aleatorio.nextInt(1000);
 
-                if (i == 2) {
+                int diferencia = Math.abs(resp - opcion);
 
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
+                if (diferencia <= 50) {
+
+                    if (i == 2) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else if (i == 3) {
+
+                        if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
+                    } else {
+                        if (opcion != resp) {
+                            opcionesResp[i] = opcion;
+                            i++;
+                        }
+
                     }
-
-                } else if (i == 3) {
-
-                    if (opcionesResp[0] != opcion && opcionesResp[1] != opcion && opcionesResp[2] != opcion) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
-                } else {
-                    if (opcion != resp) {
-                        opcionesResp[i] = opcion;
-                        i++;
-                    }
-
                 }
             }
         }
@@ -395,26 +411,26 @@ public class PreguntaDif extends AppCompatActivity {
         int res = aleatorio.nextInt(4);
 
         if (res == 0) {
-            opc1.setText(""+opcionesResp[0]);
-            opc2.setText(""+opcionesResp[1]);
-            opc3.setText(""+opcionesResp[2]);
-            opc4.setText(""+opcionesResp[3]);
+            opc1.setText("" + opcionesResp[0]);
+            opc2.setText("" + opcionesResp[1]);
+            opc3.setText("" + opcionesResp[2]);
+            opc4.setText("" + opcionesResp[3]);
 
         } else if (res == 1) {
-            opc2.setText(""+opcionesResp[0]);
-            opc1.setText(""+opcionesResp[1]);
-            opc3.setText(""+opcionesResp[2]);
-            opc4.setText(""+opcionesResp[3]);
+            opc2.setText("" + opcionesResp[0]);
+            opc1.setText("" + opcionesResp[1]);
+            opc3.setText("" + opcionesResp[2]);
+            opc4.setText("" + opcionesResp[3]);
         } else if (res == 2) {
-            opc3.setText(""+opcionesResp[0]);
-            opc1.setText(""+opcionesResp[1]);
-            opc2.setText(""+opcionesResp[2]);
-            opc4.setText(""+opcionesResp[3]);
+            opc3.setText("" + opcionesResp[0]);
+            opc1.setText("" + opcionesResp[1]);
+            opc2.setText("" + opcionesResp[2]);
+            opc4.setText("" + opcionesResp[3]);
         } else {
-            opc4.setText(""+opcionesResp[0]);
-            opc1.setText(""+opcionesResp[1]);
-            opc2.setText(""+opcionesResp[2]);
-            opc3.setText(""+opcionesResp[3]);
+            opc4.setText("" + opcionesResp[0]);
+            opc1.setText("" + opcionesResp[1]);
+            opc2.setText("" + opcionesResp[2]);
+            opc3.setText("" + opcionesResp[3]);
 
         }
     }

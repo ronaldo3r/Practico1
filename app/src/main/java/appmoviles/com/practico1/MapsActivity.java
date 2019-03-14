@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -70,6 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     //TextView
     private TextView txt_puntos_acu;
+    private TextView txt_mensaje;
 
     private boolean estoyUbi;
 
@@ -102,6 +104,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btn_preg_dificil=findViewById(R.id.btn_preg_dificil);
 
         txt_puntos_acu=findViewById(R.id.txt_total_pt);
+        txt_mensaje=findViewById(R.id.txt_mensaje);
 
         //Saman
 
@@ -163,6 +166,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         polP= mapa.addPolygon(new PolygonOptions().add(arrIzqP,abaIzqP,abaDerP,arrDerP));
 
+        polB.setStrokeColor(Color.DKGRAY);
+        polS.setStrokeColor(Color.DKGRAY);
+        polC.setStrokeColor(Color.DKGRAY);
 
 
         manager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1, new LocationListener() {
@@ -196,6 +202,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 estoyUbi=estoyEnZona();
 
                 if(estoyUbi){
+
+                    txt_mensaje.setVisibility(View.INVISIBLE);
 
                     btn_preg_facil.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -231,6 +239,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     btn_preg_facil.setVisibility(View.INVISIBLE);
                     btn_preg_dificil.setVisibility(View.INVISIBLE);
                     btn_canje.setVisibility(View.INVISIBLE);
+                    txt_mensaje.setText("Ve dentro de una zona para jugar");
+                    txt_mensaje.setVisibility(View.VISIBLE);
                 }
 
             }
@@ -301,7 +311,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if((actual.longitude>=arrIzqP.longitude)&&(actual.longitude<=abaDerP.longitude)){
 
 
-                btn_canje.setVisibility(View.VISIBLE);
+                btn_preg_dificil.setVisibility(View.VISIBLE);
 
                 estoy=true;
             }

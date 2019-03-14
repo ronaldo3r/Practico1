@@ -101,7 +101,7 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 1 punto");
                         txtPtGana.setTextColor(Color.GREEN);
                         puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
@@ -118,7 +118,7 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 1 punto");
                         txtPtGana.setTextColor(Color.GREEN);
                         puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
@@ -135,7 +135,7 @@ public class Pregunta extends AppCompatActivity {
 
                         txtDesResp.setText("Respuesta Correcta");
                         txtDesResp.setTextColor(Color.GREEN);
-                        txtPtGana.setText("Ganaste 10 punto");
+                        txtPtGana.setText("Ganaste 1 punto");
                         txtPtGana.setTextColor(Color.GREEN);
                         puntosAcumulados+=1;
                         txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
@@ -153,7 +153,7 @@ public class Pregunta extends AppCompatActivity {
 
                             txtDesResp.setText("Respuesta Correcta");
                             txtDesResp.setTextColor(Color.GREEN);
-                            txtPtGana.setText("Ganaste 10 punto");
+                            txtPtGana.setText("Ganaste 1 punto");
                             txtPtGana.setTextColor(Color.GREEN);
                             puntosAcumulados+=1;
                             txtPtTot.setText("Puntos acumulados: "+puntosAcumulados);
@@ -202,7 +202,7 @@ public class Pregunta extends AppCompatActivity {
         String ope = operadores[operador];
 
 
-        txtPuntos.setText("Para ganar 1 puntos responde la siguiente pregunta:");
+        txtPuntos.setText("Para ganar 1 punto responde la siguiente pregunta:");
 
         num1 = (int) aleatorio.nextInt(10);
         num2 = (int) aleatorio.nextInt(10);
@@ -341,8 +341,8 @@ public class Pregunta extends AppCompatActivity {
                     }
                 }
 
-                num1 = (int) aleatorio.nextInt(10);
-                num2 = (int) aleatorio.nextInt(10);
+                num1 = 1+(int) aleatorio.nextInt(10);
+                num2 = 1+(int) aleatorio.nextInt(10);
             }
             opcionesResp[0] = resp;
 

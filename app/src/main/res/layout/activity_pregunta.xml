@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".Pregunta"
     android:gravity="center"
-    android:background="@android:color/darker_gray">
+    android:background="@android:color/holo_green_dark">
 
     <TextView
         android:id="@+id/txt_tot_pt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:text=""
-        android:background="@android:color/black"
+        android:background="@android:color/holo_green_dark"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="30dp"
@@ -23,18 +23,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@android:color/white"
+        android:background="@android:color/holo_green_dark"
         android:gravity="center"
         android:id="@+id/lay_preg"
-        android:layout_below="@id/txt_tot_pt">
+        android:layout_below="@id/txt_tot_pt"
+        android:layout_marginTop="25dp">
 
         <TextView
             android:id="@+id/txt_puntos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Para ganar 5 puntos responde la siguiente pregunta:"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="30dp"
             android:textAlignment="center"/>
@@ -45,19 +46,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="100*100"
-            android:background="@android:color/black"
-            android:textColor="@android:color/white"
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="70dp"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"/>
 
         <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/opc_resp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:background="@android:color/black"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/holo_green_dark"
             >
 
             <RadioButton
@@ -68,7 +71,7 @@
                 android:text="10000"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 />
 
             <RadioButton
@@ -79,7 +82,7 @@
                 android:text="10000"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 />
 
             <RadioButton
@@ -90,7 +93,7 @@
                 android:text="10000"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/black"/>
 
             <RadioButton
                 android:id="@+id/radio_opc4"
@@ -100,7 +103,7 @@
                 android:text="10000"
                 android:textSize="30dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/black"/>
         </RadioGroup>
 
     </LinearLayout>
@@ -110,6 +113,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lay_preg"
+        android:background="@android:color/holo_green_dark"
+        android:layout_marginTop="30dp"
         android:gravity="center">
 
         <Button
@@ -117,6 +122,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Responder"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textStyle="bold"
             />
 
         <Button
@@ -125,6 +134,10 @@
             android:layout_height="wrap_content"
             android:text="Nueva pregunta"
             android:layout_marginLeft="20dp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textStyle="bold"
             />
 
         <Button
@@ -133,17 +146,21 @@
             android:layout_height="wrap_content"
             android:text="Cancelar"
             android:layout_marginLeft="20dp"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:textStyle="bold"
             />
 
     </LinearLayout>
 
     <TextView
+        android:layout_marginTop="20dp"
         android:id="@+id/txt_des_resp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Respuesta Correcta"
-        android:background="@android:color/black"
-        android:textColor="@android:color/white"
+        android:background="@android:color/holo_green_dark"
         android:textStyle="bold"
         android:textSize="30dp"
         android:visibility="invisible"
@@ -151,11 +168,12 @@
         android:layout_below="@+id/lay_btn"/>
 
     <TextView
+        android:layout_marginTop="20dp"
         android:id="@+id/txt_pt_gan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ganaste 1 punto"
-        android:background="@android:color/black"
+        android:background="@android:color/holo_green_dark"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:textSize="30dp"

@@ -6,66 +6,91 @@
     android:layout_width="match_parent"
     android:orientation="vertical">
 
-    <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MapsActivity"
-        android:layout_below="@id/txt_tot_pt">
-
-    </fragment>
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top">
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:id="@+id/lay_txt">
 
         <TextView
             android:id="@+id/txt_total_pt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text=""
-            android:background="@android:color/black"
+            android:background="@android:color/holo_green_dark"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:textSize="30dp"
+            android:textSize="25dp"
             android:textAlignment="center"
             android:gravity="center"/>
 
     </RelativeLayout>
 
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        tools:context=".MapsActivity"
+        android:layout_below="@id/lay_txt"
+        >
+
+    </fragment>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom">
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_below="@+id/map">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            android:id="@+id/txt_mensaje"/>
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Resolver pregunta fácil"
-            android:textColor="#fff"
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"
             android:id="@+id/btn_preg_facil"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:visibility="invisible"
 
             />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Resolver pregunta difícil"
+            android:background="@android:color/holo_green_dark"
             android:textColor="#fff"
             android:id="@+id/btn_preg_dificil"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:visibility="invisible"
 
             />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:text="Canjear regalo"
+            android:background="@android:color/holo_green_dark"
             android:textColor="#fff"
             android:id="@+id/btn_cupon"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:visibility="invisible"
 
             />
